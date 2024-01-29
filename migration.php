@@ -5,7 +5,11 @@ require_once 'method/migration.php';
 $migrate = new Migration();
 if (isset($_POST['submit'])){
     $dbname = $_POST['dbname'];
-    $migrate->create_db($dbname);
+    if ($migrate->create_db($dbname)){
+        $migrate->create_tbl($dbname);
+
+    }
+
 }
 ?>
 <!doctype html>
