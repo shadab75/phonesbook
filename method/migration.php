@@ -35,7 +35,6 @@ class Migration{
                     mobile VARCHAR (255) UNIQUE,
                     password VARCHAR (255),
                     address VARCHAR (255),
-                    pic VARCHAR (255),
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                     deleted_at TIMESTAMP  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                     )";
@@ -46,9 +45,8 @@ class Migration{
                     lastname VARCHAR (255) NOT NULL,
                     email VARCHAR (255) UNIQUE,
                     mobile VARCHAR (255) UNIQUE,
-                    password VARCHAR (255),
-                    address VARCHAR (255),
                     pic VARCHAR (255),
+                    address VARCHAR (255),
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                     deleted_at TIMESTAMP  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                     )";
