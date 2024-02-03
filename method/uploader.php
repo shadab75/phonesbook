@@ -1,4 +1,5 @@
 <?php
+#[AllowDynamicProperties]
 class uploader{
     public function __construct()
     {
@@ -8,7 +9,8 @@ class uploader{
     }
     public function uploader ($data){
         $folder = "uploads/";
-        $path = $folder.basename($data['name']);
+        $img_name=rand().'_'.basename($data['name']);
+        $path = $folder.$img_name;
         $upload_ok  = 1 ;
         $fileType = mime_content_type($data['tmp_name']);
         $extensions = ['image/jpeg','image/png','image/gif','image/jpg'];

@@ -1,4 +1,5 @@
 <?php
+#[AllowDynamicProperties]
 class Migration{
     public function __construct()
     {

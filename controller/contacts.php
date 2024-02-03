@@ -11,9 +11,12 @@ switch ($action){
         if ($_FILES['pic']){
             $pic = $uploader->uploader($_FILES['pic']);
         }
-         $contacts_obj->create($userID,$_POST,$pic);
+        $contacts_obj->create($userID,$_POST,$pic);
+        header('location:?c=contacts&a=list');
         break;
     case 'list':
+        $contacts = $contacts_obj->list($userID);
+
         break;
     case 'edit':
         break;
