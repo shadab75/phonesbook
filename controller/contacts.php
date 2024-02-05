@@ -14,14 +14,28 @@ switch ($action){
         $contacts_obj->create($userID,$_POST,$pic);
         header('location:?c=contacts&a=list');
         break;
+    case 'show':
+        $contact = $contacts_obj->show($_GET['id']);
+        break;
     case 'list':
         $contacts = $contacts_obj->list($userID);
 
         break;
     case 'edit':
+        $contact = $contacts_obj->show($_GET['id']);
+
         break;
     case 'update':
+        $pic ='';
+        if ($_FILES['pic']){
+            $pic=$uploader->uploader($_FILES['pic']);
+        }
+        $contact = $contacts_obj->update($_POST,$pic);
+        header('location:?c=contacts&a=list');
         break;
     case 'delete':
+        $id = $_GET['id'];
+        $contacts_obj->delete($id);
+        header('location:?c=contacts&a=list');
         break;
 }

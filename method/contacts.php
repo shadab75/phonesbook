@@ -29,4 +29,33 @@ class contacts{
 
     }
 
+    public function show($id)
+    {
+        $query =  $this->db->query("SELECT * from contacts where id='$id'");
+        return $query->fetch();
+    }
+
+    public function update($data,$pic)
+    {
+        $id = $data['id'];
+        $firstname = $data['firstname'];
+        $lastname = $data['lastname'];
+        $email = $data['email'];
+        $mobile = $data['mobile'];
+        $address = $data['address'];
+        $query = $this->db->query("UPDATE contacts SET firstname='$firstname',lastname='$lastname',email='$email',
+                    mobile='$mobile',address='$address',pic='$pic' WHERE id='$id'");
+    }
+
+    public function delete($id)
+    {
+        $this->db->query("DELETE from contacts WHERE id='$id'");
+    }
+
+    public function last_contacts($creator)
+    {
+        $query = $this->db->query("SELECT * FROM contacts WHERE creator = '$creator' order by id desc limit 2");
+        return $query->fetchAll();
+    }
+
 }

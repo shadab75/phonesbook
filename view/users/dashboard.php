@@ -3,22 +3,32 @@
 <div class="row">
     <div class="col-sm-6">
         <h4>Last Contacts :</h4>
-        <table class="table table-striped">
+        <table class="table table-striped" id="listTable">
             <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Username</th>
                 <th scope="col">Mobile</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <?php
+            $id = 1;
+             foreach ($contacts as $contact):
+                ?>
+                <tr>
+                    <td><?php echo $id;?></td>
+                    <td><?php echo $contact['firstname'].' '.$contact['lastname']?></td>
+                    <td><?php echo $contact['mobile']?></td>
+                    <td>
+                        <a href="?c=contacts&a=show&id=<?php echo $contact['id'];?>">Show</a>
+                        <a href="?c=contacts&a=edit&id=<?php echo $contact['id'];?>">Edit</a>
+                        <a href="?c=contacts&a=delete&id=<?php echo $contact['id'];?>">Delete</a>
+                    </td>
+                </tr>
 
-                <td>1</td>
-                <td>Hossein shadabfar</td>
-                <td>shadabfar75@gmail.com</td>
-            </tr>
-
+                <?php $id++;endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -27,6 +37,6 @@
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, nulla!
         </p>
-        <a href="" class="btn btn-primary">Add new Contact</a>
+        <a href="?c=contacts&a=add" class="btn btn-primary">Add new Contact</a>
     </div>
 </div>

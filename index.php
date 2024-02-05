@@ -1,11 +1,12 @@
 <?php
 require_once 'includes/conf.php';
 require_once 'method/users.php';
+
 $users_obj = new users();
+
 if ($_COOKIE['email']){
     $user = $users_obj->login($_COOKIE['email']);
     $userID = $user['id'];
-
 }
 $controller = (!empty($_GET['c'])?$_GET['c']:'index');
 $action = (!empty($_GET['a'])?$_GET['a']:'index');

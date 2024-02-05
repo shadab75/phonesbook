@@ -1,5 +1,6 @@
+<link rel="stylesheet" href="cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 <div class="p-2">
-    <table class="table table-striped">
+    <table class="table table-striped" id="listTable">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -12,7 +13,7 @@
         </thead>
         <tbody>
         <?php
-        $id = 0;
+        $id = 1;
         foreach ($contacts as $contact):
         ?>
         <tr>
@@ -34,3 +35,8 @@
         </tbody>
     </table>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script>
+    let table = new DataTable('#llistTable');
+</script>

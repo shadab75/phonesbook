@@ -1,3 +1,8 @@
+<?php
+if ($_COOKIE['email']){
+    header('location:index.php?c=users&a=dashboard');
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
