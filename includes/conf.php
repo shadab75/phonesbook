@@ -3,7 +3,7 @@ $servername = 'localhost';
 $username ='root';
 $password= '';
 $database='';
-$database="academyit10";
+$database="DBname";
 try {
     $db = new PDO("mysql:host=$servername;dbname=$database",$username,$password,);
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
